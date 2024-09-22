@@ -1,0 +1,25 @@
+spring:
+  kafka:
+    # The address of the Kafka broker that the application will connect to
+    bootstrap-servers: kafka:9092
+    
+    consumer:
+      # The consumer group ID for the Kafka consumers in this application
+      group-id: hello-world-group  
+      
+      # When no offset is available, start reading from the earliest message
+      auto-offset-reset: earliest
+      
+      # Deserializer class for the key in Kafka messages (converts byte data to String)
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      
+      # Deserializer class for the value in Kafka messages (converts byte data to String)
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    
+    producer:
+      # Serializer class for the key in Kafka messages (converts String to byte data)
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      
+      # Serializer class for the value in Kafka messages (converts String to byte data)
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
